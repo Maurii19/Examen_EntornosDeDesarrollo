@@ -48,6 +48,7 @@ public class Matematica {
 	}
 
 	public ArrayList<Integer> getSuma() {
+		System.out.println(suma);
 		return suma;
 	}
 
@@ -62,8 +63,8 @@ public class Matematica {
 	}
 
 
-	public int getResultado() {
-
+	public int getResultado(Integer a, Integer b) {
+		resultado = a + b;
 		return resultado;
 	}
 /**

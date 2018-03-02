@@ -10,8 +10,10 @@ public class TestMatematica {
 	
 	@Test
 	public void testAssertEquals(){
-		mat.realizarSuma(3, 3);
-		Integer resultado = mat.getResultado();
+		Integer a = 3;
+		Integer b = 3;
+		mat.realizarSuma(a, b);
+		Integer resultado = mat.getResultado(a, b);
 		Integer esperado = 6;
 		assertEquals(esperado, resultado);
  }
@@ -30,16 +32,28 @@ public class TestMatematica {
 	}
 	@Test
 	public void testNotNull(){
-		mat.realizarSuma(3, 4);
-		Integer resultado = mat.getResultado();
+		Integer a = 4;
+		Integer b = 5;
+		Integer c = 10;
+		mat.realizarSuma(a, b);
+		mat.realizarSuma(b, c);
+		Integer resultado = mat.getResultado(a, b);
+		Integer resultado1 = mat.getResultado(b, c);
 		ArrayList<Integer> sumas = new ArrayList<Integer>();
-		assertNotNull(sumas.add(resultado));
+		sumas.add(resultado);
+		sumas.add(resultado1);
+		mat.setSuma(sumas);
+		assertNotNull(mat.getSuma());
 	}
 	@Test
 	public void testNull(){
-		mat.realizarSuma(3, 4);
-		Integer resultado = mat.getResultado();
+		Integer a = 4;
+		Integer b = 5;
+		mat.realizarSuma(a, b);
+		Integer resultado = mat.getResultado(a,b);
 		ArrayList<Integer> sumas = new ArrayList<Integer>();
-		assertNotNull(sumas.add(resultado));
+		sumas.add(resultado);
+		mat.setSuma(sumas);
+		assertNull(mat.getSuma());
 	}
 }
